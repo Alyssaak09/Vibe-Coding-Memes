@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Memes</title>
+    <style>
+        body {
+            background-color: blue; /* Set the background color to blue */
+            color: white; /* Optional: Set text color to white for better contrast */
+            padding-top: 50px; /* Prevent content from overlapping with navbar */
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+            color: white;
+        }
+
+        .navbar a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .slideshow-container {
+            max-width: 600px;
+            position: relative;
+            margin: auto;
+        }
+
+        .slides {
+            display: none;
+            animation: fade 2s ease-in-out;
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .active {
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        @media (max-width: 600px) {
+            .slideshow-container {
+                max-width: 100%;
+            }
+
+            .navbar a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+
+        .slides:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#memes">Memes</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="slideshow-container">
+        <!-- Meme 1 -->
+        <img class="slides active" src="images/coding-memes-3.jpg" alt="Meme 1">
+        <!-- Meme 2 -->
+        <img class="slides" src="images/coding-memes-4.jpg" alt="Meme 2">
+        <!-- Meme 3 -->
+        <img class="slides" src="images/coding-memes-6.jpg" alt="Meme 3">
+        <!-- Meme 4 -->
+        <img class="slides" src="images/fixerrorcode.png" alt="Meme 4">
+        <!-- Meme 5 -->
+        <img class="slides" src="images/coding-memes-7.jpg" alt="Meme 5">
+        <!-- Meme 6 -->
+        <img class="slides" src="images/meme1.png" alt="Meme 6">
+        <!-- Meme 7 -->
+        <img class="slides" src="images/meme2.png" alt="Meme 7">
+        <!-- Meme 8 -->
+        <img class="slides" src="images/meme5.png" alt="Meme 8">
+        <!-- Meme 9 -->
+        <img class="slides" src="images/meme10.png" alt="Meme 9">
+
+        <!-- Navigation buttons -->
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+
+    <div>
+        <button onclick="likeMeme(1)">👍 Like Meme 1</button>
+        <span id="likeCount1">0</span> Likes
+    </div>
+    <div>
+        <button onclick="likeMeme(2)">👍 Like Meme 2</button>
+        <span id="likeCount2">0</span> Likes
+    </div>
+    <div>
+        <button onclick="likeMeme(3)">👍 Like Meme 3</button>
+        <span id="likeCount3">0</span> Likes
+    </div>
+
+    <p>Vote for your favorite meme:</p>
+    <button onclick="voteMeme('Meme 1')">Vote Meme 1</button>
+    <button onclick="voteMeme('Meme 2')">Vote Meme 2</button>
+    <button onclick="voteMeme('Meme 3')">Vote Meme 3</button>
+    <p id="voteResult"></p>
+
+    <!-- Link to external JavaScript file -->
+    <script src="meme.js"></script>
+</body>
+</html>
